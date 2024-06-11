@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Face Recognition</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        video { border: 1px solid black; }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Face Recognition</h1>
+    <div>
+        <h2>Live Video Feed</h2>
+        <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    </div>
+    <div>
+        <h2>Unknown Individuals</h2>
+        {% for upload in uploads %}
+            <p><a href="{{ url_for('static', filename='uploads/' ~ upload) }}">{{ upload }}</a></p>
+        {% endfor %}
+    </div>
+    <div>
+        <h2>Add Person</h2>
+        <form action="{{ url_for('add_person') }}" method="post" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="file" name="images" multiple required>
+            <button type="submit">Add Person</button>
+        </form>
+    </div>
+    <div>
+        <h2>Delete Person</h2>
+        <form action="{{ url_for('delete_person') }}" method="post">
+            <select name="name" required>
+                {% for name in names %}
+                    <option value="{{ name }}">{{ name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Delete Person</button>
+        </form>
+    </div>
+</body>
+</html>
