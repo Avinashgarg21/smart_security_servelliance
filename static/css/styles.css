@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left, .right {
+    width: 45%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#webcam-feed {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.right li {
+    margin-bottom: 10px;
+}
+
+.right li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.right li a:hover {
+    text-decoration: underline;
+}
